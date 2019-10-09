@@ -1,0 +1,103 @@
+EPIDEMICA
+
+ALL VALUES ARE ARBITRARY
+
+Select one of 4 diseases-> each is strong in certain regions (if we cannot model real world diseases through use of SIR model/PDEs, create your own diseases!)
+1. Anthrax
+2. Cholera
+3. Tuberculosis
+4. Bubonic Plague
+
+Choose a region; base colonization rate= 5 units (+- 1 based on choice vis a vis susceptibility)
+
+There are 6 continents, each with 6 biomes:
+  1. Asia
+      - Plains: Gangetic Plains
+      - Mountains: Pamir Knot
+      - Forests: Borneo
+      - Deserts, Plateaux, and Mesas: Karakum
+      - Coasts: Indian Peninsula
+      - Islands: Indonesian Archipelago
+  2. Africa
+      - Plains: Serengeti and Okavango Deltas
+      - Mountains: Kilimanjaro
+      - Forests: Congo Rainforest
+      - Deserts, Plateaux, and Mesas: Sahara
+      - Coasts: Bight of Benin, Horn of Africa, Gulf of Africa
+      - Islands: Madagascar
+  3. South America
+      - Plains: Pampas, Pantanal
+      - Mountains: Andes
+      - Forests: Amazon
+      - Deserts, Plateaux, and Mesas: Atacama
+      - Coasts: Humboldt Current Region
+      - Islands: Galapagos, Easter and Falkland
+  4. North America
+      - Plains: Prairie
+      - Mountains: Rockies
+      - Forests: Central American Rainforest
+      - Deserts, Plateaux, and Mesas: Mojave
+      - Coasts: Western and Eastern Seaboard
+      - Islands: Aleutians, Hawaii, Caribbean
+  5. Oceania
+      - Plains: Canterbury
+      - Mountains: South Alps
+      - Forests: Papua New Guinea
+      - Deserts, Plateaux, and Mesas: Great Victoria Desert
+      - Coasts: Great Barrier Reef
+      - Islands: South Pacific
+  6. Europe
+      - Plains: Steppes
+      - Mountains: Alps
+      - Forests: Taiga
+      - Deserts, Plateaux, and Mesas: Scandinavia
+      - Coasts: Baltic Coast
+      - Islands: Greenland, Spanish Islands
+  
+Which Biome is weak to what disease?
+1. Plains: weak to Anthrax, Bubonic Plague; resistant to Tuberculosis
+2. Mountains: weak to Tuberculosis, Anthrax; resistant to Cholera 
+3. Forests: weak to Tuberculosis, Bubonic Plague; resistant to Anthrax
+4. DPM: weak to Bubonic Plague, Cholera; resistant to Anthrax
+5. Coasts: weak to Cholera, Anthrax; resistant to Bubonic Plague
+6. Islands: weak to Cholera, Tuberculosis; resistant to Bubonic Plague
+
+Base Eradication Rate: 50 turns
+
+Every [3,8] turns, you are given a random mutation (from choices 1 to 9)
+Favoured Spread: Base Colonization Rate=4
+Impeded Spread: Base Colonization Rate=6
+Strain Evolution: Eradication rate increases by [5,15]
+Strain Extinction: Eradication rate decreases by [1,5]
+Severe Symptoms: Mutation rate becomes [2,7]
+Weak Symptoms: Mutation rate becomes [4, 9]
+Antibiotic Resistance: Every time a mutation is given, the eradication rate increases by 10% BUT Strain Evolution Mutation makes eradication rate by only [2, 12]
+Medical R&D: Every time a mutation is given, the eradication rate decreases by 10% BUT Strain Evolution Mutation makes eradication rate to [7, 17]
+Colonization: Spread to a new continent apart from the ones you are already in
+
+Now, the list of continental bonuses- what benefit do you get for starting on a continent? (This bonus remains constant throughout the game; does not change when you shift continents)
+1. Africa: At the beginning of the game, there is a  15% chance that the BCR will decrease by 1.
+2. Asia: At each mutation, there is a 25% chance that you will get an extra mutation.
+3. Europe (Challenge Mode): BER decreases by 5 each time you receive a mutation.
+4. Oceania: At the beginning of the game, there is a 15% chance that all biome resistances are neglected.
+5. North America: At each colonization of a new biome, there is a 5% chance that you will colonize another region. 
+6. South America: If BER becomes zero, there is a 25% chance that you will be revived ONCE with a BER of 10.
+
+If you cover all regions you win; Else if you get eradicated you are dead.
+
+Finally, output the number of countries conquered and display pre-coded compliments based on how many that is. (Good job, you read this whole thing!)
+
+Conditionals:
+If more than 20 biomes are covered, the tempo of the game changes.
+1. BER decreases by either 1 or 2 every time: increased medical research efforts and quarantine may cause the faster death of the disease
+2. BMR range increases by 2 to [lowerbound-1, upperbound+1]: More variability as selection pressure causes genetic variation and dissimilarity of strains
+3. BCR increases by 1: lockdown on borders and quarantine of the infected stymies spread
+
+If more than 30 biomes are covered:
+1. BER decreases by 2 or 3 every turn
+2. BMR range increases to [lowerbound-2, upperbound+2]
+3. BCR + 2
+
+
+10/10
+Need to develop continental bonuses, conditional bitebacks, and improve flavour text.
