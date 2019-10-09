@@ -1,0 +1,2 @@
+# Epidemica
+Human Wipeout Simulator
